@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Salka.Data.Equipment.Logic\Salka.Data.Equipments.Logic.csproj" />
+    <ProjectReference Include="..\Salka.Data.Equipment.Rest.Logic\Salka.Data.Equipments.Rest.Logic.csproj" />
+    <ProjectReference Include="..\Salka.Data.Equipment.Rest.Model\Salka.Data.Equipments.Rest.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+version: '3'
+
+networks:
+  int_network:
+
+services:
+  identity-server:
+    build: ./Salka.IdentityServer.Docker
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./Salka.IdentityServer.Docker:/root/IdentityServer:cached
+      - ./Salka.IdentityServer.Docker/certs:/https/
+      - type: bind
+        source: ./certs/
+        target: /https-root/
+    environment:
+      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_HTTPS_PORT=5000
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-identity-server.pfx
+    networks:
+      - int_network
+
+  web-api:
+    build: ./Api
+    ports:
+        - '6001:6001'
+    volumes:
+      - ./Api:/root/Api:cached
+      - ./Api/certs:/https/
+      - type: bind
+        source: ./certs/
+        target: /https-root/
+    environment:
+      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_HTTPS_PORT=6001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-web-api.pfx
+    networks:
+      - int_network

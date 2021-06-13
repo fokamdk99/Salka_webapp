@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Salka.WebApp.Client.Model\Salka.WebApp.Client.Model.csproj" />
+    <ProjectReference Include="..\Salka.WebApp.Client.Utilities\Salka.WebApp.Client.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

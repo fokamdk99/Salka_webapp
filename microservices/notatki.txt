@@ -1,0 +1,29 @@
+w clientdto studio powinno być jako studioId wylacznie
+
+miasto powinno być sprawdzane czy juz istnieje w bazie
+
+post powinno być sprawdzane czy juz istnieje w bazie
+
+{
+  "bandname": "muse",
+  "phoneNumber": "345678902",
+  "email": "muse@wp.pl",
+  "recordingStudio": {
+    "recordingStudioId": 1
+  },
+  "address": {
+    "street": "musowa",
+    "city": {
+      "name": "musowo"
+    },
+    "houseNumber": 50,
+    "flatNumber": "150",
+    "postDto": {
+      "postalCode": "02-500"
+    }
+  }
+}
+
+klasa musi dziedziczyć po BaseEntity
+oddzielny ICityService interfejs na szczególne dla danej klasy działania
+IAsyncRepository z ogólnymi dla wszystkich klas metodami, np. GetByIdAsync lub AddAsync

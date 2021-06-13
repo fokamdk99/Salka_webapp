@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Schedules", "Salka.Data.Schedule\Salka.Data.Schedules.csproj", "{784F8F7F-D6CF-4E1D-8EB0-037412388256}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Schedules.Model", "Salka.Data.Schedule.Model\Salka.Data.Schedules.Model.csproj", "{35405B1C-3AE5-42FB-AAD2-17AA5D650B38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Schedules.Logic", "Salka.Data.Schedule.Logic\Salka.Data.Schedules.Logic.csproj", "{08744F81-4FE2-4DF0-821B-6C006A0234B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Schedules.Rest.Model", "Salka.Data.Schedule.Rest.Model\Salka.Data.Schedules.Rest.Model.csproj", "{1ADD7F84-825E-4062-A9F4-1E7B71D92DF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Schedules.Rest.Logic", "Salka.Data.Schedule.Rest.Logic\Salka.Data.Schedules.Rest.Logic.csproj", "{0739DDBD-7835-4CFF-97A3-ACDEC0BA93A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{784F8F7F-D6CF-4E1D-8EB0-037412388256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{784F8F7F-D6CF-4E1D-8EB0-037412388256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{784F8F7F-D6CF-4E1D-8EB0-037412388256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{784F8F7F-D6CF-4E1D-8EB0-037412388256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35405B1C-3AE5-42FB-AAD2-17AA5D650B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35405B1C-3AE5-42FB-AAD2-17AA5D650B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35405B1C-3AE5-42FB-AAD2-17AA5D650B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35405B1C-3AE5-42FB-AAD2-17AA5D650B38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08744F81-4FE2-4DF0-821B-6C006A0234B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08744F81-4FE2-4DF0-821B-6C006A0234B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08744F81-4FE2-4DF0-821B-6C006A0234B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08744F81-4FE2-4DF0-821B-6C006A0234B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ADD7F84-825E-4062-A9F4-1E7B71D92DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ADD7F84-825E-4062-A9F4-1E7B71D92DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ADD7F84-825E-4062-A9F4-1E7B71D92DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ADD7F84-825E-4062-A9F4-1E7B71D92DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0739DDBD-7835-4CFF-97A3-ACDEC0BA93A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0739DDBD-7835-4CFF-97A3-ACDEC0BA93A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0739DDBD-7835-4CFF-97A3-ACDEC0BA93A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0739DDBD-7835-4CFF-97A3-ACDEC0BA93A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F052AC89-5DC6-4DD5-B253-AE70321A7F98}
+	EndGlobalSection
+EndGlobal

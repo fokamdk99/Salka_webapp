@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  salka.data.client:
+    build:
+      target: final
+      context: ./Salka.Data.Client/
+      dockerfile: Dockerfile.Client
+    ports:
+      - "4080:80"
+      - "4443:443"
+    networks:
+      - service_network
+  
+  salka.data.equipment:
+    build:
+      target: final
+      context: ./Salka.Data.Equipment/
+      dockerfile: Dockerfile.Equipment
+    ports:
+      - "5080:80"
+      - "5443:443"
+    networks:
+      - service_network
+
+  salka.data.schedule:
+    build:
+      target: final
+      context: ./Salka.Data.Schedule/
+      dockerfile: Dockerfile.Schedule
+    ports:
+      - "6080:80"
+      - "6443:443"
+    networks:
+      - service_network
+
+networks:
+  service_network:

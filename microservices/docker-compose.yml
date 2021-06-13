@@ -1,0 +1,106 @@
+version: '3'
+
+networks:
+  int_network:
+
+services:
+    identity-server:
+        build: ./Salka.IdentityServer.Docker/Salka.IdentityServer.Docker
+        ports:
+            - '5000:5000'
+        volumes:
+            - ./Salka.IdentityServer.Docker/Salka.IdentityServer.Docker:/root/IdentityServer:cached
+            - ./Salka.IdentityServer.Docker/Salka.IdentityServer.Docker/certs:/https/
+            - type: bind
+              source: ./certs/
+              target: /https-root/
+        environment:
+            - ASPNETCORE_URLS="https://+;"
+            - ASPNETCORE_HTTPS_PORT=5000
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-identity-server.pfx
+        networks:
+            - int_network
+
+    apigateway:
+        build:
+            context: ./Salka.ApiGateway
+            dockerfile: Salka.ApiGateway/Dockerfile.ApiGateway
+        ports:
+            - '9001:9001'
+        volumes:
+            - ./Salka.ApiGateway/Salka.ApiGateway:/root/Salka.ApiGateway:cached
+            - ./Salka.ApiGateway/Salka.ApiGateway/certs:/https/
+            - type: bind
+              source: ./certs/
+              target: /https-root/
+        environment:
+            - ASPNETCORE_URLS=https://+;
+            - ASPNETCORE_HTTPS_PORT=9001
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-apigateway.pfx
+        networks:
+            - int_network
+
+    dataclient:
+        build:
+            target: final
+            context: ./Salka.Data.Client
+            dockerfile: Salka.Data.Client/Dockerfile.Client
+        ports:
+            - '8001:8001'
+        volumes:
+            - ./Salka.Data.Client/Salka.Data.Client:/root/Salka.Data.Client:cached
+            - ./Salka.Data.Client/Salka.Data.Client/certs:/https/
+            - type: bind
+              source: ./certs/
+              target: /https-root/
+        environment:
+            - ASPNETCORE_URLS=https://+;
+            - ASPNETCORE_HTTPS_PORT=8001
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-dataclient.pfx
+        networks:
+            - int_network
+
+    dataequipment:
+        build:
+            target: final
+            context: ./Salka.Data.Equipment
+            dockerfile: Salka.Data.Equipment/Dockerfile.Equipment
+        ports:
+            - '6001:6001'
+        volumes:
+            - ./Salka.Data.Equipment/Salka.Data.Equipment:/root/Salka.Data.Equipment:cached
+            - ./Salka.Data.Equipment/Salka.Data.Equipment/certs:/https/
+            - type: bind
+              source: ./certs/
+              target: /https-root/
+        environment:
+            - ASPNETCORE_URLS=https://+;
+            - ASPNETCORE_HTTPS_PORT=6001
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-dataequipment.pfx
+        networks:
+            - int_network
+
+    dataschedule:
+        build:
+            target: final
+            context: ./Salka.Data.Schedule
+            dockerfile: Salka.Data.Schedule/Dockerfile.Schedule
+        ports:
+            - '7001:7001'
+        volumes:
+            - ./Salka.Data.Schedule/Salka.Data.Schedule:/root/Salka.Data.Schedule:cached
+            - ./Salka.Data.Schedule/Salka.Data.Schedule/certs:/https/
+            - type: bind
+              source: ./certs/
+              target: /https-root/
+        environment:
+            - ASPNETCORE_URLS=https://+;
+            - ASPNETCORE_HTTPS_PORT=7001
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-dataschedule.pfx
+        networks:
+            - int_network

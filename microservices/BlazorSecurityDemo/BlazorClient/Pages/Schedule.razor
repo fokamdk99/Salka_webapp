@@ -1,0 +1,41 @@
+﻿@page "/schedule"
+@inject BlazorClient.ScheduleService sservice
+@attribute [Authorize]
+<h3>Schedule</h3>
+
+@if (reservationList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>data</th>
+                <th>start</th>
+                <th>koniec</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in reservationList)
+            {
+                <tr>
+                    <td>@reservation.Date</td>
+                    <td>@reservation.Start</td>
+                    <td>@reservation.End</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<ReservationModel> reservationList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        reservationList = await sservice.GetReservationsByDateScope();
+    }
+}

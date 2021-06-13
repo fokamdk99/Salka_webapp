@@ -1,0 +1,14 @@
+-w config.cs zdefiniuj API, które ma być chronione przed niepowołanym dostępem
+-w config.cs zdefiniuj klientów, którzy będą mieli dostęp do API
+
+You can think of the ClientId and the ClientSecret as the login and password for your application itself. 
+It identifies your application to the identity server so that it knows which application is trying to connect to it.
+
+-AddAuthentication adds the authentication services to DI and configures Bearer as the default scheme.
+-UseAuthentication adds the authentication middleware to the pipeline so authentication will be performed automatically 
+on every call into the host.
+-UseAuthorization adds the authorization middleware to make sure, our API endpoint cannot be accessed by anonymous clients.
+
+
+
+/.well-known/openid-configuration

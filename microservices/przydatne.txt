@@ -1,0 +1,7 @@
+dotnet ef dbcontext scaffold "server=localhost;database=salkadb.client;user=root;password=Rolka7Sushi" MySql.EntityFrameworkCore -o Data -f
+
+jeśli wywala błąd 'access denied for user root@docker.host.internal', to w bazie:
+use mysql;
+update user set host='%' where host='localhost';
+zrestartuj serwis Mysql
+po kłopocie

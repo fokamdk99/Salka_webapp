@@ -1,0 +1,31 @@
+﻿@page "/clientdata"
+@inject IModel model
+@inject BlazorClient.ClientService cservice
+
+@attribute [Authorize]
+
+<h3>ClientData</h3>
+
+@if (clientData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<h4>@clientData.Bandname</h4>
+<h4>@clientData.CityName</h4>
+<h4>@clientData.Street</h4>
+<h4>@clientData.HouseNumber</h4>
+<h4>@clientData.FlatNumber</h4>
+}
+
+
+
+@code {
+    private ClientModel clientData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        clientData = await cservice.GetClientData();
+    }
+}

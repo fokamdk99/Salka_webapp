@@ -1,0 +1,32 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+WORKDIR /app
+EXPOSE 8001
+EXPOSE 443
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY ["Salka.Data.Client/Salka.Data.Clients.csproj", "Salka.Data.Client/"]
+COPY ["Salka.Data.Client.Rest.Model/Salka.Data.Clients.Rest.Model.csproj", "Salka.Data.Client.Rest.Model/"]
+COPY ["Salka.Data.Client.Model/Salka.Data.Clients.Model.csproj", "Salka.Data.Client.Model/"]
+COPY ["Salka.Data.Client.Rest.Logic/Salka.Data.Clients.Rest.Logic.csproj", "Salka.Data.Client.Rest.Logic/"]
+COPY ["Salka.Data.Client.Logic/Salka.Data.Clients.Logic.csproj", "Salka.Data.Client.Logic/"]
+RUN dotnet restore "Salka.Data.Client/Salka.Data.Clients.csproj"
+COPY . .
+WORKDIR "/src/Salka.Data.Client"
+RUN dotnet build "Salka.Data.Clients.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Salka.Data.Clients.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+COPY ["Salka.Data.Client/docker-entrypoint.sh", "."]
+ENTRYPOINT ./docker-entrypoint.sh
+CMD ["dotnet", "Salka.Data.Clients.dll"]

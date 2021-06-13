@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Clients", "Salka.Data.Client\Salka.Data.Clients.csproj", "{55C17FF0-AFB2-4E1E-A56F-CDB5BFA5B204}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Clients.Rest.Model", "Salka.Data.Client.Rest.Model\Salka.Data.Clients.Rest.Model.csproj", "{571D2786-D782-4B1D-B425-2B37872612B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Clients.Rest.Logic", "Salka.Data.Client.Rest.Logic\Salka.Data.Clients.Rest.Logic.csproj", "{74876CC9-821C-497D-92E9-C0C6F46B62AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Clients.Model", "Salka.Data.Client.Model\Salka.Data.Clients.Model.csproj", "{949A9F5E-367D-462C-8AE6-361C7932BF1D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salka.Data.Clients.Logic", "Salka.Data.Client.Logic\Salka.Data.Clients.Logic.csproj", "{9DDBF35E-8DF4-4A27-A54A-092154532FDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55C17FF0-AFB2-4E1E-A56F-CDB5BFA5B204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C17FF0-AFB2-4E1E-A56F-CDB5BFA5B204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C17FF0-AFB2-4E1E-A56F-CDB5BFA5B204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C17FF0-AFB2-4E1E-A56F-CDB5BFA5B204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571D2786-D782-4B1D-B425-2B37872612B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571D2786-D782-4B1D-B425-2B37872612B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571D2786-D782-4B1D-B425-2B37872612B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571D2786-D782-4B1D-B425-2B37872612B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74876CC9-821C-497D-92E9-C0C6F46B62AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74876CC9-821C-497D-92E9-C0C6F46B62AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74876CC9-821C-497D-92E9-C0C6F46B62AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74876CC9-821C-497D-92E9-C0C6F46B62AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949A9F5E-367D-462C-8AE6-361C7932BF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949A9F5E-367D-462C-8AE6-361C7932BF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949A9F5E-367D-462C-8AE6-361C7932BF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949A9F5E-367D-462C-8AE6-361C7932BF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DDBF35E-8DF4-4A27-A54A-092154532FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DDBF35E-8DF4-4A27-A54A-092154532FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DDBF35E-8DF4-4A27-A54A-092154532FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DDBF35E-8DF4-4A27-A54A-092154532FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB311272-0DC5-4BA7-B523-A1FB1D80882A}
+	EndGlobalSection
+EndGlobal

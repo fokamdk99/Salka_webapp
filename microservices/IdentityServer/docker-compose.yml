@@ -1,0 +1,101 @@
+version: '3'
+
+services:
+  identity-server:
+    build: ./IdentityServer
+    ports:
+      - '5001:5001'
+    volumes:
+      - ./IdentityServer:/root/IdentityServer:cached
+      - ./IdentityServer/certs:/https/
+      - type: bind
+        source: ./certs/aspnetapp-root-cert.cer
+        target: /https-root/aspnetapp-root-cert.cer
+    environment:
+      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_HTTPS_PORT=5001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-identity-server.pfx
+
+  web-api:
+    build: ./Api
+    ports:
+        - '6001:6001'
+    volumes:
+      - ./Api:/root/Api:cached
+      - ./Api/certs:/https/
+      - type: bind
+        source: ./certs/aspnetapp-root-cert.cer
+        target: /https-root/aspnetapp-root-cert.cer
+    environment:
+      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_HTTPS_PORT=6001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-web-api.pfx
+
+  dataequipment:
+    build: ./Salka.Data.Equipment
+    ports:
+        - '7001:7001'
+    volumes:
+      - ./Salka.Data.Equipment:/root/Salka.Data.Equipment:cached
+      - ./Salka.Data.Equipment.Logic:/root/Salka.Data.Equipment.Logic:cached
+      - ./Salka.Data.Equipment.Model:/root/Salka.Data.Equipment.Model:cached
+      - ./Salka.Data.Equipment.Rest.Logic:/root/Salka.Data.Equipment.Rest.Logic:cached
+      - ./Salka.Data.Equipment.Rest.Model:/root/Salka.Data.Equipment.Rest.Model:cached
+      - ./Salka.Data.Equipment/certs:/https/
+      - type: bind
+        source: ./certs/aspnetapp-root-cert.cer
+        target: /https-root/aspnetapp-root-cert.cer
+    environment:
+      - ASPNETCORE_URLS="http://;"
+
+  dataschedule:
+    build: ./Salka.Data.Schedule
+    ports:
+        - '8001:8001'
+    volumes:
+      - ./Salka.Data.Schedule:/root/Salka.Data.Schedule:cached
+      - ./Salka.Data.Schedule.Model:/root/Salka.Data.Schedule.Model:cached
+      - ./Salka.Data.Schedule.Logic:/root/Salka.Data.Schedule.Logic:cached
+      - ./Salka.Data.Schedule.Rest.Model:/root/Salka.Data.Schedule.Rest.Model:cached
+      - ./Salka.Data.Schedule.Rest.Logic:/root/Salka.Data.Schedule.Rest.Logic:cached
+      - ./Salka.Data.Schedule/certs:/https/
+      - type: bind
+        source: ./certs/aspnetapp-root-cert.cer
+        target: /https-root/aspnetapp-root-cert.cer
+    environment:
+      - ASPNETCORE_URLS="http://;"
+
+  dataclient:
+    build: ./Salka.Data.Client
+    ports:
+        - '9001:9001'
+    volumes:
+      - ./Salka.Data.Client:/root/Salka.Data.Client:cached
+      - ./Salka.Data.Client.Model:/root/Salka.Data.Client.Model:cached
+      - ./Salka.Data.Client.Logic:/root/Salka.Data.Client.Logic:cached
+      - ./Salka.Data.Client.Rest.Model:/root/Salka.Data.Client.Rest.Model:cached
+      - ./Salka.Data.Client.Rest.Logic:/root/Salka.Data.Client.Rest.Logic:cached
+      - ./Salka.Data.Client/certs:/https/
+      - type: bind
+        source: ./certs/aspnetapp-root-cert.cer
+        target: /https-root/aspnetapp-root-cert.cer
+    environment:
+      - ASPNETCORE_URLS="http://;"
+
+  apigateway:
+    build: ./Salka.ApiGateway
+    ports:
+        - '10001:10001'
+    volumes:
+      - ./Salka.ApiGateway:/root/Salka.ApiGateway:cached
+      - ./Salka.ApiGateway/certs:/https/
+      - type: bind
+        source: ./certs/aspnetapp-root-cert.cer
+        target: /https-root/aspnetapp-root-cert.cer
+    environment:
+      - ASPNETCORE_URLS="https://+;"
+      - ASPNETCORE_HTTPS_PORT=10001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp-apigateway.pfx

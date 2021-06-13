@@ -1,0 +1,43 @@
+﻿@page "/list_equipment"
+@inject IModel model
+@inject BlazorClient.EquipmentService eservice
+@inject BlazorClient.ScheduleService sservice
+@attribute [Authorize]
+
+<h3> List_equipment</h3>
+
+@if (equipmentList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity </th>
+                <th>Cost (PLN)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var equipment in equipmentList)
+            {
+                <tr>
+                    <td>@equipment.Name</td>
+                    <td>@equipment.Quantity</td>
+                    <td>@equipment.Cost</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    private List<EquipmentDto> equipmentList;
+    protected override async Task OnInitializedAsync()
+    {
+        equipmentList = await eservice.GetAllEquipment();
+    }
+}
